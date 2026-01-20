@@ -1,0 +1,8 @@
+{
+  "name": "ml-image-classifier",
+  "version": "1.0.0",
+  "description": "TensorFlow.js-powered image classification web app",
+  "scripts": {
+    "start": "python3 -m http.server 8080"
+  }
+}

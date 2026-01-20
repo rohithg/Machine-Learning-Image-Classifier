@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Classifier</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Image Classifier</h1>
+            <p>Powered by TensorFlow.js & MobileNet</p>
+        </header>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-zone" id="uploadZone">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                    </svg>
+                    <p>Click to upload or drag & drop</p>
+                    <input type="file" id="fileInput" accept="image/*">
+                </div>
+                
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <img id="uploadedImage" alt="Uploaded image">
+                    <button class="btn-secondary" onclick="resetUpload()">Upload New Image</button>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Classification Results</h2>
+                <div id="predictions"></div>
+                <div class="confidence-info">
+                    <p>Model: <strong>MobileNet v2</strong></p>
+                    <p>Processing Time: <strong id="processingTime">-</strong></p>
+                </div>
+            </div>
+
+            <div class="model-info">
+                <h3>About the Model</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-value">1000+</div>
+                        <div class="info-label">Object Classes</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-value">224x224</div>
+                        <div class="info-label">Input Size</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-value">~4MB</div>
+                        <div class="info-label">Model Size</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-value">ImageNet</div>
+                        <div class="info-label">Training Dataset</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading AI model...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
